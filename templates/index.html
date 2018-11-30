@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en" >
+   <head>
+      <title>{{ title }}</title>
+       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <link href='http://fonts.googleapis.com/css?family=Josefin+Slab:400,700' rel='stylesheet' type='text/css'>
+       <link rel="stylesheet" href="css/style.css">
+       <style>
+            body {background-color: powderblue;}
+            h1   {color: blue;}
+            p    {color: red;}
+
+           .header
+                {
+                    position: fixed;
+                    width: 100%;
+                }
+
+           .super_container
+            {
+                width: 100%;
+                overflow: hidden;
+               height: 200px;
+            }
+           .header_container
+                {
+                    lenth: 10%;
+                    width: 100%;
+                    background: #34495e;
+                    padding: 10px 10px 10px 10px;
+                }
+
+           h3 {
+              font-size: 1.7em;
+              font-weight: 100;
+              text-align: center;
+              letter-spacing: -1px;
+              color: #fa96b5;
+            }
+
+
+        .courses_row
+        {
+            margin-top: 54px;
+            text-align: center;
+        }
+        .course
+        {
+            border: solid 2px #fa96b5;
+            margin: 0% 10% 0% 10%;
+        }
+
+        .course_body
+        {
+            padding-left: 30px;
+            padding-right: 30px;
+            padding-top: 19px;
+            padding-bottom: 47px;
+            background: #FFFFFF;
+        }
+        .course_title
+        {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 20px;
+            font-weight: 700;
+            color: #AD244F;
+            -webkit-transition: all 200ms ease;
+            -moz-transition: all 200ms ease;
+            -ms-transition: all 200ms ease;
+            -o-transition: all 200ms ease;
+            transition: all 200ms ease;
+        }
+
+        .course_info
+        {
+            margin-top: 5px;
+        }
+
+           td[value=False] {
+                color: red;
+            }
+
+           td[value=True] {
+                color: green;
+            }
+
+
+
+        </style>
+   </head>
+
+   <body>
+   <div class="super_container">
+
+        <header class="header">
+            <!-- Header Content -->
+            <div class="header_container">
+                <div>
+                        <h3>HomeQ</h3>
+                </div>
+            </div>
+        </header>
+   </div>
+
+   <div class="row courses_row">
+       {% for apartment in list_of_apartments %}
+				<!-- Course -->
+				<div class="col-lg-4 course_col">
+					<div class="course">
+						<div class="course_body">
+							<div class="course_title">Apartment {{apartment['id']}}</div>
+							<div class="course_info">
+                                <table align="center">
+                                    <tr>
+                                        <td align="left">City</td>
+                                        <td align="right">{{apartment['city']}}</td>
+
+                                    </tr>
+                                    <tr>
+                                        <td align="left">Street</td>
+                                        <td align="right">{{apartment['street']}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td align="left">Shower</td>
+                                        <td value={{apartment['shower']}} align="right">{{apartment['shower']}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td align="left">Bathtub</td>
+                                        <td value={{apartment['bathtub']}} align="right">{{apartment['bathtub']}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td align="left">Microwave</td>
+                                        <td value={{apartment['microwave']}} align="right">{{apartment['microwave']}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td align="left">Bathtub</td>
+                                        <td value={{apartment['bathtub']}} align="right">{{apartment['bathtub']}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td align="left">Balcony</td>
+                                        <td value={{apartment['balcony']}} align="right">{{apartment['balcony']}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td align="left">Water Included</td>
+                                        <td align="right" value={{apartment['water_included']}}>{{apartment['water_included']}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td align="left">Heating Included</td>
+                                        <td align="right" value={{apartment['heating_included']}}>{{apartment['heating_included']}}</td>
+                                    </tr>
+                                </table>
+							</div>
+						</div>
+					</div>
+				</div>
+        <hr>
+    {% end %}
+   </div>
+
+   </body>
+</html>
